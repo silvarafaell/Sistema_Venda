@@ -8,5 +8,6 @@ namespace SistemaVenda.Data
         public Contexto(DbContextOptions<Contexto> options) : base(options) { }
         
         public DbSet<Produto> produtos { get; set; }
+        public DbSet<User> users { get; set; }
     }
 }

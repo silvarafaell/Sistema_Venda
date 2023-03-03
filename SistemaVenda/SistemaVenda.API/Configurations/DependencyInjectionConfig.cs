@@ -11,12 +11,13 @@ namespace SistemaVenda.API.Configurations
         {
             //Repository
             services.AddScoped<IProdutoRepository, ProdutoRepository>();
+            services.AddScoped<IAccountRepository, AccountRepository>();
 
 
 
             //Service
             services.AddScoped<IProdutoService, ProdutoService>();
-
+            services.AddScoped<IAccountService, AccountService>();
 
         }
     }

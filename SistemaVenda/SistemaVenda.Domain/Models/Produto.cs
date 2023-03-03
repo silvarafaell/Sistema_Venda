@@ -16,11 +16,16 @@ namespace SistemaVenda.Domain.Models
         [Column]
         public string? Description { get; set; }
 
+        [Required]
         [Column]
         public decimal Price { get; set; }
 
+        [Required]
         [Column]
-        public int Stock { get; set; }      
+        public int Stock { get; set; }
+
+        [Column]
+        public bool? Reserved { get; set; }
 
     }
 }
