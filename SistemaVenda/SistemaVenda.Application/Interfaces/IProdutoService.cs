@@ -14,6 +14,7 @@ namespace SistemaVenda.Application.Interfaces
         Task<OperationResult> Delete(int id);
 
         Task<OperationResult> Update(int id);
+        Task<OperationResult> Update(int id, bool reservation);
     }
 
 }

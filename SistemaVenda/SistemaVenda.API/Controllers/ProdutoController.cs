@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SistemaVenda.Application.Dtos;
 using SistemaVenda.Application.Interfaces;
 using SistemaVenda.Application.ViewModels;
 using SistemaVenda.Domain.Models;
@@ -47,6 +48,13 @@ namespace SistemaVenda.API.Controllers
         [ProducesResponseType(500)]
         public async Task<ActionResult<Produto>> Update(int id)
            => CustomResponse(await _service.Update(id));
+
+        [HttpPut("reservation")]
+        [ProducesResponseType(typeof(Produto), 200)]
+        [ProducesResponseType(typeof(ErrorViewModel), 404)]
+        [ProducesResponseType(500)]
+        public async Task<ActionResult<Produto>> Update(int id, bool resevation)
+           => CustomResponse(await _service.Update(id, resevation));
 
     }
 }

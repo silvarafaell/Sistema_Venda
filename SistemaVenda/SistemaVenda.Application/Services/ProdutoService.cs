@@ -68,5 +68,22 @@ namespace SistemaVenda.Application.Services
 
             return Success(produto);
         }
+
+        public async Task<OperationResult> Update(int id, bool reservation)
+        {
+            var produto = await _produtoRepository.GetByIdAsync(id);
+
+            if (produto is null)
+                return Error(ErrorMessages.IdNotFoundError(), HttpStatusCode.NotFound);
+
+            if (produto.Reserved == true)
+                return Error(ErrorMessages.ProductReservation(), HttpStatusCode.NotFound);
+
+            produto.Reserved = reservation;
+
+            await _produtoRepository.UpdateAsync(produto);
+
+            return Success(produto);
+        }
     }
 }
