@@ -6,7 +6,7 @@ namespace SistemaVenda.Data.Repositories
 {
     public class AccountRepository : Repository<User>, IAccountRepository
     {
-        public AccountRepository(Contexto context) : base(context)
+        public AccountRepository(Context context) : base(context)
         {
         }
 

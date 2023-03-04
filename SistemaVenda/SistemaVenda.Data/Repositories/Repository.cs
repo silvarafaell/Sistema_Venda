@@ -6,10 +6,10 @@ namespace SistemaVenda.Data.Repositories
 {
     public abstract class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseEntity
     {
-        protected readonly Contexto _contexto;
+        protected readonly Context _contexto;
         protected readonly DbSet<TEntity> _currentSet;
 
-        protected Repository(Contexto context)
+        protected Repository(Context context)
         {
             _contexto = context;
             _currentSet = _contexto.Set<TEntity>();

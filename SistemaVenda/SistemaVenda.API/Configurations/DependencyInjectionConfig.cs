@@ -10,13 +10,13 @@ namespace SistemaVenda.API.Configurations
         public static void AddDependencyInjectionConfig(this IServiceCollection services)
         {
             //Repository
-            services.AddScoped<IProdutoRepository, ProdutoRepository>();
+            services.AddScoped<IProdutoRepository, ProductRepository>();
             services.AddScoped<IAccountRepository, AccountRepository>();
 
 
 
             //Service
-            services.AddScoped<IProdutoService, ProdutoService>();
+            services.AddScoped<IProductService, ProductService>();
             services.AddScoped<IAccountService, AccountService>();
 
         }

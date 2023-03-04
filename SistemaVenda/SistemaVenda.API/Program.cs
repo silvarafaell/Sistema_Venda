@@ -17,7 +17,7 @@ builder.Services.AddCors(options =>
 });
 
 var connectionString = builder.Configuration.GetConnectionString("Vendas");
-builder.Services.AddDbContext<Contexto>(o => o.UseSqlServer(connectionString));
+builder.Services.AddDbContext<Context>(o => o.UseSqlServer(connectionString));
 
 builder.Services.AddDependencyInjectionConfig();
 builder.Services.AddAutoMapperConfig();

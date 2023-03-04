@@ -2,7 +2,7 @@
 
 namespace SistemaVenda.Domain.Interfaces
 {
-    public interface IProdutoRepository : IRepository<Produto>
+    public interface IProdutoRepository : IRepository<Product>
     {
     }
 }
