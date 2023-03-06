@@ -8,7 +8,6 @@ import { formatPrice } from '../../../util/format';
 import { addToCartSuccess, updateAmountSuccess } from './actions';
 
 function* addToCart({ id }) {
-  debugger; // eslint-disable-line no-debugger
   const productExists = yield select((state) =>
     state.cart.find((p) => p.id === id)
   );
@@ -42,7 +41,6 @@ function* addToCart({ id }) {
 }
 
 function* updateAmount({ id, amount }) {
-  debugger; // eslint-disable-line no-debugger
   if (amount <= 0) return;
 
   const stock = yield call(api.get, `api/produto/${id}`);
@@ -57,18 +55,27 @@ function* updateAmount({ id, amount }) {
 }
 
 function* updateReservation({ id, reservation }) {
-  debugger; // eslint-disable-line no-debugger
 
-  const productt = yield call(api.get, `api/produto/${id}`);
+ const filterproduct = yield call(api.get, `api/produto/${id}`);
 
-  if (productt.data.reserved == true) {
+  if (filterproduct.data.reserved === true) {
     toast.error('Produto já reservado');
     return;
   }
 
   const product = yield call(api.put, `api/produto/reservation?id=${id}&resevation=${reservation}`);
-  
-  //yield put(updateAmountSuccess(id, reservation));
+  if (product.request.status === 200) {
+    toast.success('Produto reservado com sucesso!');
+  }
+
+  refreshPage();
+}
+
+function refreshPage() {
+  setTimeout(()=>{
+      window.location.reload(false);
+  }, 1000);
+  console.log('page to reload')
 }
 
 export default all([

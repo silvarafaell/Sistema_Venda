@@ -44,8 +44,7 @@ button {
   color: #000;
 }
 
-#product {
-  text-decoration: none;
-  color: #000;
+#reservarItem {
+  height: 37px;
 }
 `;

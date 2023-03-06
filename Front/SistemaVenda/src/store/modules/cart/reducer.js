@@ -13,7 +13,6 @@ export default function cart(state = [], action) {
         const productIndex = draft.findIndex((p) => p.id === action.id);
 
         if (productIndex >= 0) {
-          // splice para remover
           draft.splice(productIndex, 1);
         }
       });

@@ -1,5 +1,4 @@
 export function addToCartRequest(id) {
-  debugger; // eslint-disable-line no-debugger
   return {
     type: '@cart/ADD_REQUEST',
     id,
@@ -7,7 +6,6 @@ export function addToCartRequest(id) {
 }
 
 export function addToCartSuccess(product) {
-  debugger; // eslint-disable-line no-debugger
   return {
     type: '@cart/ADD_SUCCESS',
     product,
@@ -15,7 +13,6 @@ export function addToCartSuccess(product) {
 }
 
 export function removeFromCart(id) {
-  debugger; // eslint-disable-line no-debugger
   return {
     type: '@cart/REMOVE',
     id,
@@ -23,7 +20,6 @@ export function removeFromCart(id) {
 }
 
 export function updateAmountRequest(id, amount) {
-  debugger; // eslint-disable-line no-debugger
   return {
     type: '@cart/UPDATE_AMOUNT_REQUEST',
     id,
@@ -40,10 +36,17 @@ export function updateAmountSuccess(id, amount) {
 }
 
 export function updateReservationRequest(id, reservation) {
-  debugger; // eslint-disable-line no-debugger
   return {
     type: '@cart/UPDATE_RESERVATION_REQUEST',
     id,
     reservation
+  };
+}
+
+export function updateReservationSuccess(id, reservation) {
+  return {
+    type: '@cart/UPDATE_RESERVATION_SUCCESS',
+    id,
+    reservation,
   };
 }

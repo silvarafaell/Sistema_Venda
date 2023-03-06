@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import { MdAddShoppingCart } from 'react-icons/md';
 import { formatPrice } from '../../util/format';
 import api from '../../services/api';
+import { toast } from 'react-toastify';
 
 import * as CartActions from '../../store/modules/cart/actions';
 
@@ -16,27 +17,28 @@ class Home extends Component {
   }
 
   async componentDidMount() {
-    debugger; // eslint-disable-line no-debugger
-    const response = await api.get('api/produto/');
+    try {
+      const response = await api.get('api/produto/');  
 
-    const data = response.data.map((product) => ({
-      // pegando todos os dados do produto
-      ...product,
-      priceFormatted: formatPrice(product.price),
-    }));
+      const data = response.data.map((product) => ({
+        ...product,
+        priceFormatted: formatPrice(product.price),
+      }));
 
-    this.setState({ products: data });
+      this.setState({ products: data });
+
+      } catch (e) {
+      toast.error('Produtos não encontrados');
+      }  
   }
 
   handleAddProduct = (id) => {
-    debugger; // eslint-disable-line no-debugger
     const { addToCartRequest } = this.props;
 
     addToCartRequest(id);
   };
 
   handleAddReservation = (id) => {
-    debugger; // eslint-disable-line no-debugger
     const { updateReservationRequest } = this.props;
 
     updateReservationRequest(id, true);
@@ -68,6 +70,7 @@ class Home extends Component {
             
             <button
               type="button"
+              id='reservarItem'
               onClick={() => this.handleAddReservation(product.id)}
             >
               <span>RESERVAR</span>

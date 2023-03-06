@@ -12,9 +12,6 @@ function Header({ cartSize }) {
       <NavLink className="nav-link active" aria-current="page" to="/" id="home">
       <strong>Home</strong>
       </NavLink>
-      <NavLink className="nav-link active" aria-current="page" to="/product" id="product">
-      <strong>Produto</strong>
-      </NavLink>
       <Cart to="/cart">
         <div>
           <strong>Meu carrinho</strong>
