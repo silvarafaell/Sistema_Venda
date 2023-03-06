@@ -14,13 +14,11 @@ import * as CartActions from '../../store/modules/cart/actions';
 import { Container, ProductTable, Total } from './styles';
 
 function Cart({ cart, total, removeFromCart, updateAmountRequest }) {
-  debugger; // eslint-disable-line no-debugger
   function increment(product) {
     updateAmountRequest(product.id, product.amount + 1);
   }
 
   function decrement(product) {
-    debugger; // eslint-disable-line no-debugger
     updateAmountRequest(product.id, product.amount - 1);
   }
 
@@ -74,7 +72,6 @@ function Cart({ cart, total, removeFromCart, updateAmountRequest }) {
       </ProductTable>
 
       <footer>
-        <button type="button">Finalizar pedido</button>
 
         <Total>
           <span>TOTAL</span>
