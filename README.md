@@ -6,3 +6,6 @@
 - Padrão Repositorio 
 
 ### Frontend 
+- Arquitetura Flux
+- React 
+- Redux e Saga
