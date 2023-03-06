@@ -5,6 +5,7 @@
 - Arquitetura DDD
 - Padrão Repositorio 
 - Injeção de Dependência  
+- Teste Unitário com XUnit e Moq
 
 ### Frontend 
 - Arquitetura Flux
